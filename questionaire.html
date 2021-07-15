@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		My questionaire
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".q").click(function(){
+				$(this).parent().toggleClass("question");
+				var a=$(this).parent().attr("id");
+				a=Number(a)+1;
+				alert(a);
+				$("#"+a).toggleClass("question");
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$("#start").click(function(){
+				$(this).parent().addClass("question");
+				$("#1").toggleClass("question");
+			});
+		});
+	</script>
+	<style>
+		header{
+			height : 100px;
+			background-color : black;
+			box-shadow : 0px 2px 5px grey ;
+		}
+		body{
+			background-image: linear-gradient(to right , rgb(240, 255, 219) , white);
+		}
+		span.q{
+			color: green;
+		}
+		div.question{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+<header>
+	<div class="w3-container">
+		<img src="sk_logo.png" alt="sk_logo">
+	</div>
+</header>
+<div class="w3-row w3-padding-16">
+	<div class="w3-container w3-center w3-padding-16">
+		<h2>This is a questionaire sample</h2>
+		<p>Choose an answer to proceed to the next question</p>
+	</div>
+	<div class="w3-container w3-center">
+		<div class="w3-card-4 w3-padding-16" style="width:50% align-middle">
+			<div>
+				<span>Click </span><span id="start" style="color:green ; font-weight:bold">start</span><span> to begin the questionaire</span>
+			</div>
+			<div class="question" id="1">
+				<p>My first question</p>
+				<span>Click </span><span class="q" id="yes1">Yes </span><span>or </span><span id="no">No </span>
+			</div>
+			<div class="question" id="2">
+				<p>My second question</p>
+				<span>Click </span><span class="q" id="yes2">Yes </span><span>or </span><span id="no">No </span>
+			</div>
+			<div class="question" id="3">
+				<p>My third question</p>
+				<span>Click </span><span class="q" id="yes3">Yes </span><span>or </span><span id="no">No </span>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<div class="w3-row w3-padding-16">
+	<div class="w3-container w3-center">
+		<input class="w3-button w3-black w3-round" type="button" value="Go to start" onclick="history.go(0);">
+	</div>
+</div>
+<div class="w3-row w3-padding-16">
+	<div class="w3-container w3-center">
+		<p>This questionaire sample has two possible answers to every question. By clicking "Yes" you proceed to the following question, otherwise nothing happens. You can go to the first question by clicking the button "Go to start".</p>
+	</div>
+</div>
+</body>
+</html>
